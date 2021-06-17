@@ -1,0 +1,72 @@
+.loginPaper {
+    width: 18rem;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    text-align: center;
+  }
+  
+  .registerBox {
+    width: 18rem;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    text-align: center;
+  }
+  
+  .accountdiv {
+    width: 38rem;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    left: 25%;
+    top: 20%;
+  }
+  
+  .customercard {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow-y: auto;
+    display: grid;
+    grid-template: auto/repeat(3, 1fr);
+    grid-gap: 2px;
+    margin-bottom: 25px;
+  }
+  
+  .productform {
+    width: 18rem;
+    position: relative;
+    text-align: center;
+    margin-bottom: 25px;
+    margin: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .link {
+    display: flex;
+    justify-content: left;
+  }
+  
+  .dasboardpapercontainer {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow-y: auto;
+    display: grid;
+    grid-template: auto/repeat(4, 1fr);
+  }
+  
+  .dashboardpaper {
+    width: 20rem;
+    text-align: center;
+  }
+  
+  .navbarpaper {
+    height: 5rem;
+    text-align: end;
+  }
+  .paper_style {
+    padding: 20px;
+  }
+  
