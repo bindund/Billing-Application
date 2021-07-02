@@ -62,12 +62,12 @@ const Login = (props) => {
             <h3>Login</h3>
             <Grid align="center">
             <form onSubmit={handleChange}><br/>
-            <TextField  id="outlined-basic" label="Email"  type="text" value={email} onChange={changeEmail} placeholder="enter email"/><br/>
+            <TextField  id="outlined-basic"   type="text" value={email} onChange={changeEmail} placeholder="enter email"/><br/>
             {
                 forms.email && <span>{forms.email}</span>
             }<br/>
             
-            <TextField  id="outlined-basic" label="Password"  type="password" value={password} onChange={changePassword} placeholder="enter password"/><br/>
+            <TextField  id="outlined-basic" type="password" value={password} onChange={changePassword} placeholder="enter password"/><br/>
             {
                 forms.password && <span>{forms.password}</span>
             }<br/>

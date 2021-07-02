@@ -1,17 +1,19 @@
 import React from 'react'
 import ProductForm from './ProductForm'
 import ProductList from './ProductList'
-
+import '../Customers/Customer.css'
 const ProductContainer = (props) => {
 
 
     return (
-        <div className="container">
+        <main>
+            <div class="block1">
             <ProductForm />
+            </div>
+            <div class="block2">
             <ProductList />
-            
-            
-        </div>
+             </div>
+        </main>
     )
 }
 

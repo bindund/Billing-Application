@@ -96,47 +96,47 @@ const Register = (props) => {
             <button onClick={handleBack} class="btn btn-danger">Back</button>
             <div className="loginPaper">
             <Paper elevation={3}>
-            <h3>Register</h3>
+            <h3>Register</h3><br/>
             <Grid align="center">
-            <form onSubmit={handleChange}><br/>
-                <TextField id="outlined-name" label="Name"  
-                 type="text"  placeholder="enter your name" 
-                 value={userName} onChange={changeName} /> 
-                 { forms.userName && <span>{forms.userName}</span>}
-                <TextField id="outlined-basic" label="Email" 
+            <form onSubmit={handleChange}>
+                <TextField id="outlined-name" 
+                 type="text"  placeholder=" name" 
+                 value={userName} onChange={changeName} /> <br/>
+                 { forms.userName && <span>{forms.userName}</span>}<br/>
+                <TextField id="outlined-basic" 
                 type="text" 
-                placeholder="enter your email" 
+                placeholder=" email" 
                 value={email} 
                 onChange={changeEmail}
-                />
+                /><br/>
                 {
                     forms.email && <span>{forms.email}</span>
-                }
-                <TextField id="outlined-basic" label="Password" 
+                }<br/>
+                <TextField id="outlined-basic" 
                 type="password" 
-                placeholder="enter your password" 
+                placeholder=" password" 
                 value={password} 
                 onChange={changePassword}
-                />
+                /><br/>
                 {
                     forms.password && <span>{forms.password}</span>
                 }
-                
-                <TextField id="outlined-basic" label="BusinessName" 
+                <br/>
+                <TextField id="outlined-basic"
                 type="text"
-                 placeholder="enter your businessName" 
+                 placeholder=" businessName" 
                  value={businessName} 
                  onChange={changeBusiness}
-                 />
+                 /><br/>
                 {
                     forms.businessName && <span>{forms.businessName}</span>
                 }
-                
-                <TextField id="outlined-basic" label="Address" 
+                <br/>
+                <TextField id="outlined-basic" 
                 value={address} 
                 onChange={changeAddress} 
-                palceholder="enter your address"
-                />
+                placeholder=" address"
+                /><br/>
                 {
                     forms.address && <span>{forms.address}</span>
                 }

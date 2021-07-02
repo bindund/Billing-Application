@@ -2,6 +2,7 @@ import React , {useState} from 'react'
 import {useSelector} from 'react-redux'
 import {StyledLink} from '../../styling/app-styled'
 import Lineitems from './LineItems'
+import "./BillGenerator.css"
 
 const BillGenerator = (props) => {
     const [date , setDate] = useState('')
@@ -19,7 +20,7 @@ const BillGenerator = (props) => {
     }
 
     return(
-        <div>
+        <div class="items">
               
             <StyledLink to="/Allbills">All-Bills</StyledLink><br/>
             <input type="date" value={date} onChange={changeDate}/><br/>

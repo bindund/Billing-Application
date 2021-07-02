@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import CustomerItem from './CustomerItem'
+import "./CustomerList.css"
+
 
 const CustomerList = (props) => {
     const customers = useSelector((state) => {
@@ -10,13 +12,17 @@ const CustomerList = (props) => {
     return (
         <div >
             {customers.length === 0 ? (
-                <p>No customers found</p>
+                <div class="center">
+                <h4>No customer found</h4>
+                <p>enter your first customer</p>
+                </div>
             ) : (
                 <div>
-                    <br/>
-                <h4>No of Customers - { customers.length } </h4>
+                <h4 >No of Customers - { customers.length } </h4>
+                
                     <CustomerItem />
-                </div>
+            </div>
+                
             )}
         </div>
     )

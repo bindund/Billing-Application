@@ -1,13 +1,21 @@
 import React from 'react'
 import CustomerForm from './CustomerForm'
 import CustomerList from './CustomerList'
+import './Customer.css'
 
 const Customer = (props) => {
     return(
-        <div>
+        <main>
+             
+            <div class="block1">
             <CustomerForm />
+            </div>
+            <div class="block2">
             <CustomerList/>
-        </div>
+            </div>
+        
+        </main>
+        
     )
 }
 export default Customer

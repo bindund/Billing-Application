@@ -88,9 +88,8 @@ const CustomerForm = (props) => {
     }
 
     return (
-        <div className="productform">
-         <Paper className="paper_style">
-            <br/>
+        <div>
+             <Paper className="paper_style">
             <h3>Add Customer</h3>
             <form onSubmit={handleSubmit}>
             <TextField  id="outlined-basic" label='Name' 
@@ -124,7 +123,8 @@ const CustomerForm = (props) => {
                 <input  type='button' value='cancel' onClick={() => { resetForm() }} class="btn btn-danger" />
             </form>
             </Paper>
-     </div>
+            </div> 
+            
     )
     
 }

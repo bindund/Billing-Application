@@ -5,8 +5,9 @@ import { startDeleteCust } from '../../actions/customerActions'
 import Modal from 'react-modal'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
-
 import CustomerForm from './CustomerForm'
+import "./CustomerItem.css"
+
 
 const CustomerItem = (props) => {
     const [open, setOpen] = useState(false)
@@ -42,11 +43,13 @@ const CustomerItem = (props) => {
     }
 
     return (
-            <>
-            <div className="customercard">
+        
+            
+            <div >
             {customers.map((customer) => {
-                return (<div className="customercard" >
-                        <div class="card" style={{width: "20rem"}}>
+                return (
+                    <div class="mui-card xs-shadow">
+                        <div class="card" style={{width: "22rem"}}>
                             <img src="./logo.jpg" class="card-img-top" alt="..."/>
                             <div class="card-body">
                             <h5 class="card-title">{customer.name}</h5>
@@ -59,12 +62,16 @@ const CustomerItem = (props) => {
                             <button onClick={() => {
                                 deleteCustomer(customer._id)
                             }}><DeleteIcon/></button>
-                            </div>
-                        </div>
+                            
+            
+            </div>
+            </div>
                 </div>
+    
+    
                 )
             })}
-            </div>
+        
 
             {open && (
                     <Modal isOpen={open}>
@@ -80,7 +87,9 @@ const CustomerItem = (props) => {
                     }}>close</button>
                     </Modal>
                 )}
-        </>    
+                </div>
+                
+         
     )
 }
 

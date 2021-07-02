@@ -4,8 +4,6 @@ import {LinkWrapper, Wrapper } from '../styling/app-styled'
 import {toggleStatus} from '../actions/loginActions'
 import Navbar from './Navbar'
 
-
-
 const App=(props)=>{
 
   const dispatch = useDispatch()

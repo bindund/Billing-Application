@@ -5,6 +5,7 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import Modal from 'react-modal'
 import { startDeleteProd } from '../../actions/productsActions'
 import ProductForm from './ProductForm'
+import "./ProductItem.css"
 
 const ProductItem = (props) => {
     const [open, setOpen] = useState(false)
@@ -34,14 +35,14 @@ const ProductItem = (props) => {
         setPrice(product.price)
     }
 
-    return (<div >
+    return (
        
         <>
-        <div className="customercard">
+        <div>
             {products.map((product) => {
                 return (
-                        <div className="customercard">
-                        <div class="card" style={{width: "20rem"}}>
+                    <div class="mui-card-product xs-shadow">
+                        <div class="card" >
                             <img src="./foodie.jpg" class="card-img-top" alt="..."/>
                             <div class="card-body">
                             <h5 class="card-title">{product.name}</h5>
@@ -54,10 +55,13 @@ const ProductItem = (props) => {
                             }}><DeleteIcon/></button>
                             </div>
                         </div>
-                </div>
+                        </div>
+            
                 )
-            })}</div>
-            <div>
+            })}
+        
+        
+                <div>
                 {open && (
                     <Modal isOpen={open}>
                     <ProductForm
@@ -71,10 +75,12 @@ const ProductItem = (props) => {
                     }} className="btn-danger">close</button>
                     </Modal>
                 )}
-                </div>
+            </div>
+            </div>
         </>
         
-    </div>)
+    
+    )
 }
 
 export default ProductItem

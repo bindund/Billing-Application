@@ -23,16 +23,6 @@
     top: 20%;
   }
   
-  .customercard {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    overflow-y: auto;
-    display: grid;
-    grid-template: auto/repeat(3, 1fr);
-    grid-gap: 2px;
-    margin-bottom: 25px;
-  }
   
   .productform {
     width: 18rem;
