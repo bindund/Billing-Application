@@ -1,3 +1,14 @@
+.customercard {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow-y: auto;
+  display: grid;
+  grid-template: auto/repeat(3, 1fr);
+  grid-gap: 2px;
+  margin-bottom: 25px;
+}
+
 .loginPaper {
     width: 18rem;
     position: absolute;
@@ -60,3 +71,12 @@
     padding: 20px;
   }
   
+  .img{
+    height:100px;
+    width:200px;
+  }
+  
+  .customer_style{
+    width: 300px;
+    padding: 20px;
+  }

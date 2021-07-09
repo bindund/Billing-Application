@@ -1,4 +1,29 @@
 .items{
-    margin:auto 20px;;
-    
+    margin-left: 40px ;
 }
+
+
+.arrow {
+    transform : translateY(-50%);
+    left : 0;
+    right : 0;
+  }
+  
+  
+  .arrow-link {
+    text-decoration : none;
+  }
+  
+  .arrow-link:after {
+    font-size : 40px;
+    content : "\2192";
+    color : #dadada;
+    display : inline-block;
+    -webkit-transition: all .4s ease-in-out;
+  }
+  
+  .arrow-link:hover:after {
+    transform : translateX(60px);
+    color : blue;
+  }
+  

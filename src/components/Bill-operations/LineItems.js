@@ -2,7 +2,11 @@ import React ,{ useState} from 'react'
 import {useSelector , useDispatch} from 'react-redux'
 import {addLineItems,CreateBill} from '../../actions/billActions'
 import ShowaddedProducts from './ShowaddedProducts'
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import Button from '@material-ui/core/Button';
 import BillDetails from './BillDetails'
+import "./AllBill.css"
 
 const Lineitems = (props) => {
     const {customerId , date} = props
@@ -60,18 +64,26 @@ const Lineitems = (props) => {
             }
         </select>
         {
-            productId.length > 0 ? (<div>
-                <button onClick={handledecquantiy}>-</button>{quantity}
-                <button onClick={handleIncQuantity}>+</button>
-                <button onClick={handleAdd}>Add</button><br/></div>
+            productId.length > 0 ? (
+                <div>
+                <div class="button">
+                <Button variant="contained" onClick={handledecquantiy}><RemoveIcon/></Button>{quantity}
+                <Button variant="contained" onClick={handleIncQuantity}><AddIcon/></Button><br/>
+                <div class="btn1 btn1-label">
+                <Button  onClick={handleAdd} >Add</Button>
+                </div>
+                </div>
+                </div>
+                
                   ):(
                   <div></div>
                   )
+        
         }
+        
         <ShowaddedProducts generatebill={generatebill}/>
         <BillDetails />
-
-    </div>
+</div>
     )
 }
 export default Lineitems

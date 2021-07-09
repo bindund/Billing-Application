@@ -1,96 +1,55 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import {Link} from 'react-router-dom'
-import { startDeleteCust } from '../../actions/customerActions'
-import Modal from 'react-modal'
-import EditIcon from '@material-ui/icons/Edit'
-import DeleteIcon from '@material-ui/icons/Delete'
-import CustomerForm from './CustomerForm'
-import "./CustomerItem.css"
-
+import React , {useState , useEffect} from 'react'
+import SearchIcon from '@material-ui/icons/Search';
+import { useSelector } from 'react-redux'
+import CustomerCard from './CustomerCard'
+import "./CustomerItem.css" 
 
 const CustomerItem = (props) => {
-    const [open, setOpen] = useState(false)
-    const [id, setId] = useState('')
-    const [name, setName] = useState('')
-    const [mobile, setMobile] = useState('')
-    const [email, setEmail] = useState('')
+    const [search , setSearch] = useState('')
+    const [fill , setFill] = useState([])
+    const customers = useSelector(state => state.customers)
+
+    useEffect(()=> {
+        setFill(customers)
+    },[customers])
+
+    const changeSearch = (e) => {
+        setSearch(e.target.value)
+        const filtered = customers.filter((ele) => {
+            return (ele.name.toLowerCase().includes(search.toLowerCase()))
+        })
+        setFill(filtered)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(e.target.value == ""){
+            setFill(customers)
+        }
+    }
+
     
-
-    const customers = useSelector((state) => {
-        return state.customers
-    })
-    const dispatch = useDispatch()
-
     
-
-    const deleteCustomer = (_id) => {
-        const confirmRemove = window.confirm('Are you sure ?')
-        if(confirmRemove) {
-            dispatch(startDeleteCust(_id))
-    }
-}
-    const handleToggle = () => {
-        setOpen(!open)
-    }
-
-    const handleEdit = (customer) => {
-        handleToggle()
-        setId(customer._id)
-        setName(customer.name)
-        setMobile(customer.mobile)
-        setEmail(customer.email)
-    }
-
     return (
-        
-            
-            <div >
-            {customers.map((customer) => {
-                return (
-                    <div class="mui-card xs-shadow">
-                        <div class="card" style={{width: "22rem"}}>
-                            <img src="./logo.jpg" class="card-img-top" alt="..."/>
-                            <div class="card-body">
-                            <h5 class="card-title">{customer.name}</h5>
-                            <p>email :{customer.email}</p>
-                            <p>Mobile:{customer.mobile}</p>
-                            <Link to= {`/bills/${customer._id}`}>show Bills</Link>
-                            <button onClick={() => {
-                                handleEdit(customer)
-                            }}><EditIcon/></button>
-                            <button onClick={() => {
-                                deleteCustomer(customer._id)
-                            }}><DeleteIcon/></button>
-                            
-            
-            </div>
-            </div>
-                </div>
-    
-    
-                )
-            })}
-        
-
-            {open && (
-                    <Modal isOpen={open}>
-                    <CustomerForm
-                        id={id}
-                        name={name}
-                        mobile={mobile}
-                        email={email}
-                        handleToggle={handleToggle}
-                    />
-                    <button onClick={() => {
-                        handleToggle()
-                    }}>close</button>
-                    </Modal>
-                )}
-                </div>
+        <div class="card_align">
+            <div>
+                 <form onSubmit={handleSubmit}>
+                <div class="searchbar" >
+                <i class="fa fa-search" class="icon"><SearchIcon/></i>
+                 <input   type="search" class="search" placeholder="Search..." value={search} onChange={changeSearch} />
+                 
+                 </div>
                 
-         
-    )
+            </form>
+
+            <div>
+            {fill.map((customer) => {
+                return <CustomerCard key={customer._id} customer={customer}/>
+            })}
+                </div>  
+        </div>    
+        </div>
+ )   
 }
 
 export default CustomerItem

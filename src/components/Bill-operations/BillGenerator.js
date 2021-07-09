@@ -4,6 +4,8 @@ import {StyledLink} from '../../styling/app-styled'
 import Lineitems from './LineItems'
 import "./BillGenerator.css"
 
+
+
 const BillGenerator = (props) => {
     const [date , setDate] = useState('')
     const [customerId , setSuctomerId] = useState('')
@@ -21,8 +23,12 @@ const BillGenerator = (props) => {
 
     return(
         <div class="items">
-              
-            <StyledLink to="/Allbills">All-Bills</StyledLink><br/>
+              <div class="arrow">
+                  <div  class="arrow-link">
+                      <StyledLink to="/Allbills" >All-Bills</StyledLink>  
+                   </div>
+              </div>
+            
             <input type="date" value={date} onChange={changeDate}/><br/>
             <select value={customerId} onChange={customerChange}>
             <option value="">Select Customer</option>

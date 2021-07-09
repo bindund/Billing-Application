@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {startDeleteBill} from './actions/billActions'
+import "./ShowBill.css"
 
 const ShowBills =(props)=>{
     const id = props.match.params.id;
@@ -43,17 +44,17 @@ const ShowBills =(props)=>{
     }
     
     
-    return(<div>
+    return(<>
         {
-            pbills.length >0 ? (<div className="customercard">
+            pbills.length >0 ? (<div>
                 {
                     pbills.map((bill)=>{
-                        return (<div>
-                            <div className="customercard">
-                                <div class="card" style={{width: "20rem"}}>
-                                    <img src="/billlogo.jpg" class="card-img-top" alt="..."/>
+                        return (
+                            <div class="mui-card-bills xs-shadow">
+                            
+                                    <img src="/bill.jpg" class="card-img-top-bills" alt="..."/>
                                     <div class="card-body">
-                                    <h5 class="card-title">Customer Name : {displayCustomername(bill.customer)}</h5>
+                                    <h5 class="card-title">  Customer Name : {displayCustomername(bill.customer)}</h5>
                                     <p>Date : {bill.date.slice(0, bill.date.indexOf("T")).split("-").join("/")}</p>
                                     <p>Purchase Details</p>
                                     {
@@ -64,18 +65,19 @@ const ShowBills =(props)=>{
                                 <p>Total Bill Amount - {bill.total}rs</p>
                                 <button onClick={()=>{
                                     removeBill(bill._id)}} className="btn btn-danger">Delete Bill</button>
+                        
+                        
                             </div>
-                            </div>
-                            </div>
-                        </div>
-
+                             
+                                        </div>
+                                
                         )
                     })
                 }
-
-                </div>):(<div><p>No transactions made</p></div>)
+                </div>
+                ):(<div><p>No transactions made</p></div>)
         }
-    </div>)
+    </>)
         
 }
 

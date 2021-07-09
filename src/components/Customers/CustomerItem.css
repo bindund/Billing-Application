@@ -1,13 +1,70 @@
+.searchbar {
+  position: absolute;
+  top: 80px;
+  right:20px;
+  color: black;
+}
+
+.icon {
+   position: relative;
+   top: 0px;
+   left: 30px;
+   color: black;
+}
+
+input.search {
+  width: 0px;
+  border:0px solid lightgray;
+  border-radius: 20px;
+  padding-left: 35px;
+  height: 35px;
+  width: 35px;
+  transition: 700ms all ease;
+}
+
+input.search::placeholder {
+  color: white;
+}
+
+.icon:hover + input.search::placeholder, input.search:hover::placeholder {
+  color: black;
+}
+
+.icon:hover + input.search, input.search:hover
+{
+width:280px;
+border:1px solid lightgray;
+transition: 700ms all ease;
+}
+
+input.search:focus
+{
+width:280px;
+border:1px solid lightblue;
+outline: none;
+transition: 700ms ease forwards;
+}
+
+input.search:focus::placeholder
+{
+color: white;
+}
+.searchTerm:focus{
+  color: white;
+}
+
+
+
 .mui-card {
     background: #fff;
-  border-radius: 2px;
+  border-radius: 10px;
   display: inline-block;
-  height: 380px;
-  margin: 1rem;
+  height: 360px;
+  margin: 10px;
   position: relative;
-  width: 330px;
+  width: 260px;
   background: #eee;
-  text-align: center;
+  text-align: left;
   
   
 }
@@ -16,8 +73,18 @@
 transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
+.card-img-top1{
+  width: 260px;
+  height: 150px;
+}
+
 .xs-shadow:hover {
 box-shadow: 0 14px 28px
 rgba(0,0,0,0.25), 0 10px 10px
 rgba(0,0,0,0.22);
+}
+
+
+.card_align{
+  margin-top: 20px;
 }

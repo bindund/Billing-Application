@@ -7,13 +7,14 @@ import { startEditCust, startPostCust } from '../../actions/customerActions'
 const CustomerForm = (props) => {
     const { handleToggle, id, name, mobile: phone, email: eMail  } = props 
     
-    const dispatch = useDispatch()
-
+    const dispatch = useDispatch()    
     const [userName, setUserName] = useState(name ? name : '')
     const [mobile, setMobile] = useState(phone ? phone : '')
     const [email, setEmail] = useState(eMail ? eMail : '')
     const [formErrors, setFormErrors] = useState({})
     const errors = {}
+    
+
 
     const handleInputChange = (e) => {
         const attr = e.target.name
@@ -59,7 +60,6 @@ const CustomerForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
         runValidations()
 
         if(Object.keys(errors).length === 0){
@@ -87,9 +87,11 @@ const CustomerForm = (props) => {
 
     }
 
+
     return (
-        <div>
-             <Paper className="paper_style">
+        <>
+        
+        <Paper className="customer_style">
             <h3>Add Customer</h3>
             <form onSubmit={handleSubmit}>
             <TextField  id="outlined-basic" label='Name' 
@@ -123,7 +125,8 @@ const CustomerForm = (props) => {
                 <input  type='button' value='cancel' onClick={() => { resetForm() }} class="btn btn-danger" />
             </form>
             </Paper>
-            </div> 
+        
+            </> 
             
     )
     

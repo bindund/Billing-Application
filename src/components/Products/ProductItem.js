@@ -5,7 +5,9 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import Modal from 'react-modal'
 import { startDeleteProd } from '../../actions/productsActions'
 import ProductForm from './ProductForm'
+import Button from '@material-ui/core/Button';
 import "./ProductItem.css"
+
 
 const ProductItem = (props) => {
     const [open, setOpen] = useState(false)
@@ -42,28 +44,26 @@ const ProductItem = (props) => {
             {products.map((product) => {
                 return (
                     <div class="mui-card-product xs-shadow">
-                        <div class="card" >
                             <img src="./foodie.jpg" class="card-img-top" alt="..."/>
                             <div class="card-body">
                             <h5 class="card-title">{product.name}</h5>
                             <p>Price :{product.price}rs</p>
-                            <button onClick={() => {
+                            <Button onClick={() => {
                                 handleEdit(product)
-                            }}><EditIcon/></button>
-                            <button onClick={() => {
+                            }}><EditIcon/></Button>
+                            <Button onClick={() => {
                                 deleteProduct(product._id)
-                            }}><DeleteIcon/></button>
+                            }}><DeleteIcon/></Button>
                             </div>
                         </div>
-                        </div>
-            
                 )
             })}
         
         
                 <div>
                 {open && (
-                    <Modal isOpen={open}>
+                    <Modal 
+                     isOpen={open}>
                     <ProductForm
                         id={id}
                         name={name}

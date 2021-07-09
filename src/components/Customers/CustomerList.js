@@ -11,20 +11,21 @@ const CustomerList = (props) => {
     
     return (
         <div >
-            {customers.length === 0 ? (
-                <div class="center">
-                <h4>No customer found</h4>
-                <p>enter your first customer</p>
+         {customers.length === 0 ? (
+             <div class="center">
+             <h4>No customers found</h4>
+                <p>Add your first customer</p>
                 </div>
             ) : (
                 <div>
-                <h4 >No of Customers - { customers.length } </h4>
-                
+                    <br/>
+                <h4>No of Customers - { customers.length } </h4>
                     <CustomerItem />
-            </div>
-                
+                </div>
             )}
-        </div>
+         </div>
+                
+           
     )
 }
 

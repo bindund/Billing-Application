@@ -1,5 +1,5 @@
 import axios from '../config/axios'
-
+import swal from 'sweetalert'
 
 
  export const startPostCust = (cust) => {
@@ -15,6 +15,8 @@ import axios from '../config/axios'
                 alert(result.errors)
             } else {
                 dispatch(addCust(result))
+                
+                
             }
         })
         .catch((err) => {
@@ -93,10 +95,9 @@ export const startGetAllCust = () => {
             const result = response.data 
             if(result.hasOwnProperty('errors')) {
                 alert(result.errors)
-            }else{
+            }else{    
                 dispatch(getAllCust(result))
             }
-
         })
         .catch((err) => {
             alert(err.message)
@@ -126,6 +127,7 @@ export const startEditCust = (id, cust) => {
                 alert(result.errors)
             } else {
                 dispatch(editCust(result))
+                
             }
         })
         .catch((err) => {

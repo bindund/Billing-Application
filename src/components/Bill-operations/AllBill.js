@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {startDeleteBill,startGetAllBill} from '../../actions/billActions'
 
+
 const AllBill =(props)=>{
     const customers = useSelector((state) => {
         return state.customers})
@@ -35,8 +36,10 @@ const AllBill =(props)=>{
         dispatch(startDeleteBill(id))
     }
 
-    return (<div><br/>
-        <h3>All Bills</h3>
+    return (<div>
+        <div class="text_align">
+            <h3>All Bills</h3>
+        
         <div className="customercard">
         {
             allBills.map((bill)=>{
@@ -45,7 +48,7 @@ const AllBill =(props)=>{
                         <div class="card" style={{width: "20rem"}}>
                             <img src="./bill.jpg" class="card-img-top" alt="..."/>
                             <div class="card-body">
-                            <h5 class="card-title">Customer Name : {displayCustomername(bill.customer)}</h5>
+                            <h5 class="card-title"> Name : {displayCustomername(bill.customer)}</h5>
                             <p>Date : {bill.date.slice(0, bill.date.indexOf("T")).split("-").join("/")}</p>
                             <p>Purchase Details</p>
                             {
@@ -63,7 +66,7 @@ const AllBill =(props)=>{
                 
             })
         }</div>
-
+</div>
     </div>)
 }
 
